@@ -1,13 +1,17 @@
 import modelos.playlist
 from modelos.playlist import agregarPlaylist, eliminarPlaylist, mostrarPlaylists
-from modelos.cancion import agregarCancion
+from modelos.cancion import agregarCancion, mostrarCanciones, eliminarCancion
 from colorama import Fore, Style, init
 import pandas as pd
+
+playlists = []
 
 while True:
     op1 = input("""Desea agregar una nueva playlist: """)
     if op1 == "no":
       break
+  
+    canciones = []
   
     while True:
         op2 = int(input("""
@@ -21,12 +25,40 @@ while True:
             """))
         match op2:
             case 1:
-               nombre = ("Ingrese nombre de la playlist:")
                playlist = agregarPlaylist()
-               playlist[nombre] = playlist
+               playlists.append(playlist)
                print("Se ha agregado la playlist.")
                
             case 2:
-               mostrarPlaylists(playlist)
+               mostrarPlaylists(playlists)
                
+            case 3:
+                mostrarPlaylists(playlists)
+                idPlaylist = int(input("Digíte el id de la playlist: "))
+                eliminarPlaylist(playlists, idPlaylist)
+                print("Se ha eliminado la playlist")
+               
+            case 4:
+                mostrarPlaylists(playlists)
+                idPlaylist = int(input("Digíte el id de la playlist: "))
+                cancion = agregarCancion()
+                playlists[idPlaylist][-1].append(cancion)
+                print("Se ha agregado la canción a la playlist correctamente")
+                
+            case 5:
+                mostrarPlaylists(playlists)
+                idPlaylist = int(input("Digíte el id de la playlist: ")) 
+                mostrarCanciones(playlists[idPlaylist])
+                
+            case 6:
+                mostrarPlaylists(playlists)
+                idPlaylist = int(input("Digíte el id de la playlist: "))
+                mostrarCanciones(playlists[idPlaylist])
+                idCancion = int(input("Digíte el id de la canción a eliminar: "))
+                playlists[idPlaylist][-1] = eliminarCancion(playlists[idPlaylist][-1], idCancion)
+                print("Se ha eliminado la canción de la playlist")
+            
+            case 7:
+                break
+                
 
