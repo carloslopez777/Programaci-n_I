@@ -42,7 +42,7 @@ while True:
                 mostrarPlaylists(playlists)
                 idPlaylist = int(input("Digíte el id de la playlist: "))
                 cancion = agregarCancion()
-                playlists[idPlaylist][-1].append(cancion)
+                playlists[idPlaylist]["canciones"].append(cancion)
                 print("Se ha agregado la canción a la playlist correctamente")
                 
             case 5:
@@ -55,7 +55,7 @@ while True:
                 idPlaylist = int(input("Digíte el id de la playlist: "))
                 mostrarCanciones(playlists[idPlaylist])
                 idCancion = int(input("Digíte el id de la canción a eliminar: "))
-                playlists[idPlaylist][-1] = eliminarCancion(playlists[idPlaylist][-1], idCancion)
+                playlists[idPlaylist]["canciones"] = eliminarCancion(playlists[idPlaylist]["canciones"], idCancion)
                 print("Se ha eliminado la canción de la playlist")
             
             case 7:
