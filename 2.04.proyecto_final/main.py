@@ -1,6 +1,7 @@
 import modelos.playlist
 from modelos.playlist import agregarPlaylist, eliminarPlaylist, mostrarPlaylists
 from modelos.cancion import agregarCancion, mostrarCanciones, eliminarCancion
+from modelos.graficas import grafica_canciones_por_genero
 from colorama import Fore, Style, init
 import pandas as pd
 
@@ -14,6 +15,7 @@ while True:
     canciones = []
   
     while True:
+        print(Fore.LIGHTGREEN_EX + Style.BRIGHT)
         op2 = int(input("""
             1-. Agregar playlist
             2-. Mostrar playlists          
@@ -21,7 +23,8 @@ while True:
             4-. Agregar canción
             5-. Mostrar canciones 
             6-. Eliminar canción
-            7-. Salir
+            7-. Mostrar gráfica
+            8-. Salir
             """))
         match op2:
             case 1:
@@ -57,8 +60,11 @@ while True:
                 idCancion = int(input("Digíte el id de la canción a eliminar: "))
                 playlists[idPlaylist]["canciones"] = eliminarCancion(playlists[idPlaylist]["canciones"], idCancion)
                 print("Se ha eliminado la canción de la playlist")
-            
+                
             case 7:
+                grafica_canciones_por_genero(playlists)
+
+            case 8:
                 break
                 
 

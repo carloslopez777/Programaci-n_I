@@ -49,32 +49,34 @@ contenedor_botones.pack(pady= 5, padx= 10, fill="both")
 
 acumulador = 0
 for row in range(5):
-    contenedor_botones.rowconfigure(row, weight=1)
     for column in range(4):
-        contenedor_botones.columnconfigure(column, weight=1)
         boton = tk.Button(contenedor_botones, text= botones_texto[acumulador]
                           , bg="#1661D1", fg="#FFFFFF"
                           , font="Roboto 20", bd= 0, width= 4, 
                           command= lambda b = botones_texto[acumulador]:click_botones(b))
         
+        if botones_texto[acumulador]== "C":
+                boton.config(bg="#DA0F0F")
+        elif botones_texto[acumulador] in ("/", "*", "-", "+"):
+                boton.config(bg="#147899")
+                
         if botones_texto[acumulador] != "":    
-        
-            if botones_texto[acumulador]== "C":
-                boton.config(height=2, bg="#DA0F0F")
-            elif botones_texto[acumulador] in ("/", "*", "-", "+"):
-                boton.config(height=2, bg="#147899")
             
             if botones_texto[acumulador] == "+": 
                 boton.config(height=3) 
-                boton.grid(row=row, column=column, padx= 1, pady= 1, sticky="nsew") 
+                boton.grid(row=row, column=column, rowspan=2, padx= 1, pady= 5) 
             elif botones_texto[acumulador] == "=": 
                 boton.config(height=3, bg="#CF5F14")
-                boton.grid(row=row, column=column, rowspan= 2, padx= 1, pady= 1, sticky="nsew") 
+                boton.grid(row=row, column=column, rowspan= 2, padx= 1, pady= 5) 
             elif botones_texto[acumulador] == "0": 
                 boton.config(width=8) 
-                boton.grid(row=row, column=column, rowspan= 2, padx= 1, pady= 1) 
+                boton.grid(row=row, column=0, columnspan= 2, padx= 1, pady= 5) 
+            elif botones_texto[acumulador] == ".":
+                boton.grid(row=row, column=2, padx=1, pady=5)
+
+                
             else:
-                boton.grid(row=row, column=column, padx= 1, pady= 1) 
+                boton.grid(row=row, column=column, padx= 1, pady= 5) 
             
         #boton.grid(row=row, column=column, padx=0, pady=0, sticky="nsew")
         acumulador +=1 

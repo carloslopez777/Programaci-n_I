@@ -5,7 +5,8 @@ def agregarCancion():
     nombre = input("Nombre de la canción: ")
     artista = input("Nombre del artista: ")
     duracion = input("Duración: ") 
-    streams = input("Streams: ") 
+    streams = int(input("Streams: "))
+    
     cancion = {
         "nombre": nombre,
         "artista": artista,
