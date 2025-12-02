@@ -1,9 +1,11 @@
 from colorama import Fore, Style, init
 import pandas as pd
 
+print(Fore.RED + Style.RESET_ALL)
 generos = ("Rap", "Reggaeton", "Pop", "Rock", "Corridos")
 
 def agregarPlaylist():
+    print(Fore.BLUE + "Agrega una nueva playlist" + Style.BRIGHT)
     nombre = input("Digíte el nombre de la playlist: ")
     descripcion = input("Descripción de la playlist: ")
     
@@ -23,7 +25,6 @@ def agregarPlaylist():
 
 def eliminarPlaylist(playlists, idPlaylist):
     playlists.pop(idPlaylist)
-    print(Fore.GREEN + "Playlist eliminada correctamente." + Style.RESET_ALL)
     return playlists
 
 def mostrarPlaylists(playlists):

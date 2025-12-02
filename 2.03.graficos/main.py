@@ -102,16 +102,21 @@ def detener():
 
 def cambiar_volumen(valor):
     pygame.mixer.music.set_volume(float((valor/100)))
+    return volumen
     
 def salir():
     root.destroy()
     
 cargar_fuente_memoria("./fuentes/Font Awesome 7 Brands-Regular-400.otf")
+cargar_fuente_memoria("./fuentes/Font Awesome 7 Free-Regular-400.otf")
+cargar_fuente_memoria("./fuentes/Font Awesome 7 Free-Solid-900.otf")
                 
+pygame.init()
+
 root = tk.Tk()
 root.title(TITULO)
-rutaIcono = resolver_ruta()
-icon = tk.PhotoImage(file="c:/Users/Panch/Downloads/python_programacion/Programaci-n_I/Programaci-n_I-5/2.03.graficos/imagenes/sales.png")
+rutaIcono = resolver_ruta("./imagenes/sales.png")
+icon = tk.PhotoImage(file=rutaIcono)
 root.iconphoto(False, icon)
 centrar_ventana(root,1024,600)
 
@@ -175,11 +180,10 @@ boton_play.pack(padx=4, pady=10, side=tk.RIGHT)
 boton_stop.pack(padx=4, pady=10, side=tk.RIGHT)
 boton_open.pack(padx=4, pady=10, side=tk.RIGHT)
 
-ruta_perfil = resolver_ruta()
+ruta_perfil = resolver_ruta("./imagenes/profile.png")
 imagen_perfil = leer_imagen(ruta_perfil, (100,100))
 label_perfil = tk.Label(menu_lateral, bg=COLOR_MENU_LATERAL
                         ,image= imagen_perfil)
-
 label_perfil.pack(side=tk.TOP, pady=20)
 
 boton_inicio = tk.Button(

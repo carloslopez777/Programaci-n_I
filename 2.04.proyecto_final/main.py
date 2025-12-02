@@ -1,9 +1,10 @@
 import modelos.playlist
 from modelos.playlist import agregarPlaylist, eliminarPlaylist, mostrarPlaylists
 from modelos.cancion import agregarCancion, mostrarCanciones, eliminarCancion
-from modelos.graficas import grafica_canciones_por_genero
+from modelos.graficas import graficaCanciones
+from modelos.pandas import mostrarTabla
 from colorama import Fore, Style, init
-import pandas as pd
+from modelos.datos import playlists
 
 playlists = []
 
@@ -24,13 +25,14 @@ while True:
             5-. Mostrar canciones 
             6-. Eliminar canción
             7-. Mostrar gráfica
-            8-. Salir
+            8-. Mostrar tabla
+            9-. Salir
             """))
         match op2:
             case 1:
                playlist = agregarPlaylist()
                playlists.append(playlist)
-               print("Se ha agregado la playlist.")
+               print(Fore.GREEN + "Se ha agregado la playlist." + Style.RESET_ALL)
                
             case 2:
                mostrarPlaylists(playlists)
@@ -39,14 +41,14 @@ while True:
                 mostrarPlaylists(playlists)
                 idPlaylist = int(input("Digíte el id de la playlist: "))
                 eliminarPlaylist(playlists, idPlaylist)
-                print("Se ha eliminado la playlist")
+                print(Fore.RED + "Se ha eliminado la playlist" + Style.RESET_ALL)
                
             case 4:
                 mostrarPlaylists(playlists)
                 idPlaylist = int(input("Digíte el id de la playlist: "))
                 cancion = agregarCancion()
                 playlists[idPlaylist]["canciones"].append(cancion)
-                print("Se ha agregado la canción a la playlist correctamente")
+                print(Fore.GREEN + "Se ha agregado la canción a la playlist correctamente" + Style.RESET_ALL)
                 
             case 5:
                 mostrarPlaylists(playlists)
@@ -59,12 +61,14 @@ while True:
                 mostrarCanciones(playlists[idPlaylist])
                 idCancion = int(input("Digíte el id de la canción a eliminar: "))
                 playlists[idPlaylist]["canciones"] = eliminarCancion(playlists[idPlaylist]["canciones"], idCancion)
-                print("Se ha eliminado la canción de la playlist")
+                print(Fore.RED + "Se ha eliminado la canción de la playlist" + Style.BRIGHT)
                 
             case 7:
-                grafica_canciones_por_genero(playlists)
-
+                graficaCanciones(playlists)
+                
             case 8:
+                mostrarTabla(playlists)
+                
+            case 9:
                 break
                 
-
