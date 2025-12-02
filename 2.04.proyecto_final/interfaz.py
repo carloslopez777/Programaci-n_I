@@ -6,6 +6,11 @@ from util.util_imagenes import leer_imagen
 import pygame
 import os
 
+#python -m PyIntaller --noconsole --onefile --icon" --icon="./imagenes/musicaa.png" --name="Spotrofy
+# --add-data "imagenes;imagenes"
+# --add-data "fuentes:fuentes"
+# interfaz.py
+
 ruta=""
 estado=""
 nombre_archivo="<No se ha seleccionado un archivo>"
