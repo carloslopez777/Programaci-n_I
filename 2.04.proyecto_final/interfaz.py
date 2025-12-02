@@ -6,7 +6,8 @@ from util.util_imagenes import leer_imagen
 import pygame
 import os
 
-#python -m PyIntaller --noconsole --onefile --icon" --icon="./imagenes/musicaa.png" --name="Spotrofy
+#python -m PyInstaller --noconsole --onefile 
+# --icon="./imagenes/musicaa.png" --name="Spotrofy"
 # --add-data "imagenes;imagenes"
 # --add-data "fuentes:fuentes"
 # interfaz.py
@@ -44,8 +45,10 @@ def mostrar_inicio():
 
 def mostrar_playlists():
     limpiar_panel(panel_principal)
-    label_imagen_principal = tk.Label(panel_principal,text="Playlists")
+    label_imagen_principal = tk.Label(panel_principal,text="¡Añade playlists y canciones!", width=25, bg= COLOR_PANEL_PRINCIPAL
+                                      , fg="#388F22", bd=0, font="Pristina 35")
     label_imagen_principal.pack()
+    
 
 def mostrar_favoritos():
     limpiar_panel(panel_principal)
@@ -112,9 +115,9 @@ def salir():
     root.destroy()
 
 #Cargar las fuentes.
-cargar_fuente_memoria("C:/Users/rafay/OneDrive/Documents/Programación I/Programacion1/Proyecto final/fuentes/Font Awesome 7 Brands-Regular-400.otf")
-cargar_fuente_memoria("C:/Users/rafay/OneDrive/Documents/Programación I/Programacion1/Proyecto final/fuentes/Font Awesome 7 Free-Regular-400.otf")
-cargar_fuente_memoria("C:/Users/rafay/OneDrive/Documents/Programación I/Programacion1/Proyecto final/fuentes/Font Awesome 7 Free-Solid-900.otf")
+cargar_fuente_memoria("C:/Users/Panch/Downloads/python_programacion/Programaci-n_I/Programaci-n_I-5/2.04.proyecto_final/fuentes/Font Awesome 7 Brands-Regular-400.otf")
+cargar_fuente_memoria("C:/Users/Panch/Downloads/python_programacion/Programaci-n_I/Programaci-n_I-5/2.04.proyecto_final/fuentes/Font Awesome 7 Free-Regular-400.otf")
+cargar_fuente_memoria("C:/Users/Panch/Downloads/python_programacion/Programaci-n_I/Programaci-n_I-5/2.04.proyecto_final/fuentes/Font Awesome 7 Free-Solid-900.otf")
 
 pygame.mixer.init()
 
