@@ -38,13 +38,14 @@ def limpiar_panel(panel):
 
 def mostrar_inicio():
     limpiar_panel(panel_principal)
-    label_imagen_principal = tk.Label(panel_principal,text="Inicio")
+    label_imagen_principal = tk.Label(panel_principal,text="Bienvenido a Spotrofy", width=25, bg= COLOR_PANEL_PRINCIPAL
+                                      , fg="#388F22", bd=0, font="Pristina 35")
     label_imagen_principal.pack()
 
 def mostrar_playlists():
     limpiar_panel(panel_principal)
     label_imagen_principal = tk.Label(panel_principal,text="Playlists")
-    label_imagen_principal.pack()    
+    label_imagen_principal.pack()
 
 def mostrar_favoritos():
     limpiar_panel(panel_principal)
