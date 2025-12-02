@@ -13,7 +13,7 @@ while True:
     if op1 == "no":
       break
   
-    canciones = []
+    canciones = {}
   
     while True:
         print(Fore.LIGHTGREEN_EX + Style.BRIGHT)

@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import font, filedialog, messagebox
-from config import TITULO,COLOR_BARRA_SUPERIOR,COLOR_MENU_LATERAL,COLOR_PANEL_PRINCIPAL
+from config import TITULO,COLOR_BARRA_INFERIOR,COLOR_MENU_LATERAL,COLOR_PANEL_PRINCIPAL
 from util.util_ventana import centrar_ventana, cargar_fuente_memoria, resolver_ruta
 from util.util_imagenes import leer_imagen
 import pygame
@@ -120,8 +120,8 @@ root.iconphoto(False,icon)
 
 centrar_ventana(root,1024,700)
 
-barra_superior = tk.Frame(root,height=50,bg=COLOR_BARRA_SUPERIOR)
-barra_superior.pack(side=tk.TOP, fill="both")
+barra_inferior = tk.Frame(root,height=50,bg=COLOR_BARRA_INFERIOR)
+barra_inferior.pack(side=tk.BOTTOM, fill="both")
 
 menu_lateral = tk.Frame(root,width=150,bg=COLOR_MENU_LATERAL)
 menu_lateral.pack(side=tk.LEFT, fill="both",expand=False)
@@ -132,25 +132,25 @@ panel_principal.pack(side=tk.RIGHT, fill="both",expand=True)
 
 fontawesome = font.Font(family="Font Awesome 7 Free",size=20)
 
-btn_menu= tk.Button(barra_superior, text="\uf0ca", font=fontawesome,bg=COLOR_BARRA_SUPERIOR, fg="#f2f2f2",bd=0, command=toggle_panel)
+btn_menu= tk.Button(barra_inferior, text="\uf0ca", font=fontawesome,bg=COLOR_BARRA_INFERIOR, fg="#f2f2f2",bd=0, command=toggle_panel)
 btn_menu.pack(padx=10, pady=10, side=tk.LEFT)
 
-label = tk.Label(barra_superior,text="Proyecto Final Interfaz",font="Gabriola 18",bg=COLOR_BARRA_SUPERIOR,fg="#f2f2f2")
+label = tk.Label(barra_inferior,text="Proyecto Final Interfaz",font="Gabriola 18",bg=COLOR_BARRA_INFERIOR,fg="#f2f2f2")
 
-label_musica = tk.Label(barra_superior,text= nombre_archivo, font="Roboto 14", bg=COLOR_BARRA_SUPERIOR, fg="#f2f2f2", padx=20)
+label_musica = tk.Label(barra_inferior,text= nombre_archivo, font="Roboto 14", bg=COLOR_BARRA_INFERIOR, fg="#f2f2f2", padx=20)
 
-btn_open= tk.Button(barra_superior, text="\uf07c", font=fontawesome,bg=COLOR_BARRA_SUPERIOR, fg="#f2f2f2",bd=0, command=cargar_cancion)
+btn_open= tk.Button(barra_inferior, text="\uf07c", font=fontawesome,bg=COLOR_BARRA_INFERIOR, fg="#f2f2f2",bd=0, command=cargar_cancion)
 
-btn_stop= tk.Button(barra_superior, text="\uf28d", font=fontawesome,bg=COLOR_BARRA_SUPERIOR, fg="#f2f2f2",bd=0, command=detener)
+btn_stop= tk.Button(barra_inferior, text="\uf28d", font=fontawesome,bg=COLOR_BARRA_INFERIOR, fg="#f2f2f2",bd=0, command=detener)
 
-btn_play= tk.Button(barra_superior, text="\uf144", font=fontawesome,bg=COLOR_BARRA_SUPERIOR, fg="#f2f2f2",bd=0, command=reproducir)
+btn_play= tk.Button(barra_inferior, text="\uf144", font=fontawesome,bg=COLOR_BARRA_INFERIOR, fg="#f2f2f2",bd=0, command=reproducir)
 
-btn_pause= tk.Button(barra_superior, text="\uf28b", font=fontawesome,bg=COLOR_BARRA_SUPERIOR, fg="#f2f2f2",bd=0, command=pausar)
+btn_pause= tk.Button(barra_inferior, text="\uf28b", font=fontawesome,bg=COLOR_BARRA_INFERIOR, fg="#f2f2f2",bd=0, command=pausar)
 
-btn_backward= tk.Button(barra_superior,font=fontawesome,bg=COLOR_BARRA_SUPERIOR, fg="#f2f2f2",bd=0)
+btn_backward= tk.Button(barra_inferior,font=fontawesome,bg=COLOR_BARRA_INFERIOR, fg="#f2f2f2",bd=0)
 
-btn_forward= tk.Button(barra_superior, font=fontawesome,bg=COLOR_BARRA_SUPERIOR, fg="#f2f2f2",bd=0)
-volumen = tk.Scale(barra_superior, from_=0, to=100, resolution=1, orient="horizontal", bd=0, bg=COLOR_BARRA_SUPERIOR, fg="#f2f2f2", length=150, troughcolor="#95a5a6", activebackground="#0099cc", sliderrelief="flat", relief="flat", highlightthickness=0)
+btn_forward= tk.Button(barra_inferior, font=fontawesome,bg=COLOR_BARRA_INFERIOR, fg="#f2f2f2",bd=0)
+volumen = tk.Scale(barra_inferior, from_=0, to=100, resolution=1, orient="horizontal", bd=0, bg=COLOR_BARRA_INFERIOR, fg="#f2f2f2", length=150, troughcolor="#95a5a6", activebackground="#0099cc", sliderrelief="flat", relief="flat", highlightthickness=0)
 volumen.set(50)
 
 
