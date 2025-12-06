@@ -107,9 +107,9 @@ def cambiar_volumen(valor):
 def salir():
     root.destroy()
     
-cargar_fuente_memoria("./fuentes/Font Awesome 7 Brands-Regular-400.otf")
-cargar_fuente_memoria("./fuentes/Font Awesome 7 Free-Regular-400.otf")
-cargar_fuente_memoria("./fuentes/Font Awesome 7 Free-Solid-900.otf")
+cargar_fuente_memoria("C:/Users/Panch/Downloads/python_programacion/Programaci-n_I/Programaci-n_I-5/2.03.graficos/fonts/Font Awesome 7 Brands-Regular-400.otf")
+cargar_fuente_memoria("C:/Users/Panch/Downloads/python_programacion/Programaci-n_I/Programaci-n_I-5/2.03.graficos/fonts/Font Awesome 7 Free-Regular-400.otf")
+cargar_fuente_memoria("C:/Users/Panch/Downloads/python_programacion/Programaci-n_I/Programaci-n_I-5/2.03.graficos/fonts/Font Awesome 7 Free-Solid-900.otf")
                 
 pygame.init()
 
